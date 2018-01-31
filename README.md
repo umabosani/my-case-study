@@ -63,6 +63,9 @@ Docker for Ubuntu is available for free Community Edition (CE) and as an Enterpr
 These are the reasons that I have to Ubuntu.
 
 
+
+
+
 Openresty git clone:
 
  sudo git clone https://github.com/openresty/openresty
@@ -70,5 +73,117 @@ Openresty git clone:
 
 Configuration Management using chef:
 
+
+## Here in this script few things could be assumptions.
+
+#create Chef-repo directory on my work station:
+
+cd ~/chef-repo
+
+# create the chef cookbook on openresty:
+
+knife cookbook create openresty
+
+package 'nginx' do
+  action :install
+end
+
+service 'nginx' do
+  action [ :enable, :start ]
+end
+
+## We should put this file in the files/default sub directory
+
+cd ~/chef-repo/cookbooks/nginx/files/default
+
+## edit the index.html file
+
+<html>
+  <head>
+    <title>Cognative Scale</title>
+  </head>
+  <body>
+    <h1>test website</h1>
+    <p>casestudy</p>
+  </body>
+</html>
+
+## to update the node need to create the cookbook "sudo apt-get update"
+
+knife cookbook create aptupdate
+
+## we need to edit the default recipy on our cookbook
+nano ~/chef-repo/cookbooks/apt/recipes/default.rb
+
+execute "apt-get update" do
+  command "apt-get update"
+end
+
+## update our openrecipy cookbook.
+
+nano ~/chef-repo/cookbooks/nginx/recipes/default.rb
+
+include_recipe "apt"
+
+package 'nginx' do
+  action :install
+end
+
+service 'nginx' do
+  action [ :enable, :start ]
+end
+
+cookbook_file "/usr/share/nginx/www/index.html" do
+  source "index.html"
+  mode "0644"
+end
+
+## Update the metadata.rb file
+
+nano ~/chef-repo/cookbooks/nginx/metadata.rb
+
+name,
+Maintainer_email
+license
+description
+version
+
+depends on aptupdate
+
+
+## Upload the cookbooks to our server
+
+knife cookbook upload aptupdate
+knife cookbook upload nginx
+
+## modify the run list of our node
+
+knife node edit nginx
+
+## node list
+
+knife node list
+
+## edit the node
+knife node edit chefclient1
+
+{
+  "name": "client1",
+  "chef_environment": "_default",
+  "normal": {
+    "tags": [
+
+    ]
+  },
+  "run_list": [
+    "recipe[openresty]"
+  ]
+}
+
+## ssh into node
+
+sudo chef-client
+
+test the resources
 
 
