@@ -187,3 +187,6 @@ sudo chef-client
 test the resources
 
 
+## Based on the assumptions i have written the code for openresty web server. Kindly let me know if you need detail information on this.
+
+
