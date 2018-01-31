@@ -63,4 +63,10 @@ Docker for Ubuntu is available for free Community Edition (CE) and as an Enterpr
 These are the reasons that I have to Ubuntu.
 
 
+Openresty git clone:
+
+ sudo git clone https://github.com/openresty/openresty
+
+
+
 
