@@ -68,5 +68,7 @@ Openresty git clone:
  sudo git clone https://github.com/openresty/openresty
 
 
+Configuration Management using chef:
+
 
 
