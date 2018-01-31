@@ -51,3 +51,16 @@ aws ec2 describe-security-groups --group-id sg-1c87516baws ec2 describe-security
 ## Creating Ec2 instance
 
 aws ec2 run-instances --image-id ami-0a9fac70 --security-group-ids sg-1c87516b --count 1 --instance-type t2.micro --key-name casestudy-key
+
+
+Why I have choosen Ubuntu: Justification:
+
+Docker for Ubuntu is the best way to install the Docker platform on Ubuntu Linux environments. Simplify provisioning and setup of Docker and accelerate your time to value in building and deploying container based applications.
+Even it is suitable openresty Web Server. Ubunu easy to manage and it supports for Docker and Openresty.
+
+Docker for Ubuntu is available for free Community Edition (CE) and as an Enterprise Edition (EE) subscription with software, support and certification.
+
+These are the reasons that I have to Ubuntu.
+
+
+
