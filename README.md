@@ -261,5 +261,31 @@ sudo docker restart docker-nginx
 
 
 
+## Restricting security groups to  the access application from my ip.
+
+I can update the security group inbound rules for this application. 
+
+type: http
+protocol: tcp
+port range: 80
+## source: myip/32 ( 49.36.3.258/32)
+
+for the email alert notication with the free software solutions. ( There are multiple paid services are available on website monitoring).
+
+I used one of the google provide alert notification and have shared with the devops@cognitivescale.com
+
+and I also got a reply from them.
 
 
+jtischler@cognitivescale.com is requesting access to the following spreadsheet:
+
+Copy of Website Monitor v5.0 by ctrlq.org
+Open sharing settings
+Google Sheets: Create and edit spreadsheets online. 
+Google Inc. 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
+You have received this email because someone shared a spreadsheet with you from Google Sheets.
+
+
+## Kindly note based on my busy schedule I could work on this case study this much only. 
+
+Kindly let me know if you need more information on this. But I am really sorry to say, I am too much busy with preparation and other interview schedules.
