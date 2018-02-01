@@ -189,4 +189,77 @@ test the resources
 
 ## Based on the assumptions i have written the code for openresty web server. Kindly let me know if you need detail information on this.
 
+Dockerize the application:
+
+# check for kernal version.
+uname -r
+
+# installing the docker
+
+sudo curl -sSL https://get.docker.com/ | sh
+
+#testing after installation.
+
+sudo docker run hello-world
+
+sudo docker ps -a
+
+sudo docker ps -a
+
+
+sudo docker start pedantic_snyder
+
+
+# pulling the nginx docker image
+
+sudo docker pull nginx
+
+sudo docker run --name docker-nginx -p 80:80 nginx
+
+sudo docker ps -a
+
+sudo docker rm docker-nginx
+
+sudo docker run --name docker-nginx -p 80:80 -d nginx
+sudo docker ps
+
+sudo docker stop docker-nginx
+
+sudo docker rm docker-nginx
+
+# building a webpage
+
+mkdir -p ~/docker-nginx/html
+cd ~/docker-nginx/html
+
+vim index.html
+
+<html>
+  <head>
+    <title>Cognitive_Scale</title>
+  </head>
+  <body>
+    <h1>Casestudy</h1>
+    <p>DevOps</p>
+  </body>
+</html>
+
+sudo docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx
+
+
+cd ~/docker-nginx
+
+sudo docker cp docker-nginx:/etc/nginx/conf.d/default.conf default.conf
+
+sudo docker stop docker-nginx
+
+sudo docker rm docker-nginx
+
+sudo docker run --name docker-nginx -p 80:80 -v ~/docker-nginx/html:/usr/share/nginx/html -v ~/docker-nginx/default.conf:/etc/nginx/conf.d/default.conf -d nginx
+
+sudo docker restart docker-nginx
+
+
+
+
 
